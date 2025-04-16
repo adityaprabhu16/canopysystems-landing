@@ -1,10 +1,9 @@
 import { Container } from "../shared/Container";
 import { NavItem } from "../shared/NavItem";
 import { BtnLink } from "../shared/BtnLink";
-import logo from "../../assets/icon.svg"; //Created with FastLogo
 import { useThemeStore } from "../../store/ThemeStore"
 
-const navItems = [
+export const navItems = [
     {href: "#", text: "Home"},
     {href: "#", text: "Services"},
     {href: "#about-us", text: "About Us"},
@@ -22,7 +21,7 @@ export const Navbar = () => {
                 <nav className="w-full flex justify-between gap-6 relative">
                     <div className="min-w-max inline-flex relative">
                         <a href="/" className="relative flex items-center gap-3">
-                            <img src={logo} alt="EdgeAI logo" className="w-10 h-10"/>
+                            <img src="/assets/icon.svg" alt="EdgeAI logo" className="w-10 h-10"/>
                             <div className="inline-flex text-lg font-semibold text-heading-1">Edge AI</div>
                         </a>
                     </div>

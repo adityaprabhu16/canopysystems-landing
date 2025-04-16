@@ -13,7 +13,7 @@ export const Brands = () => {
                 {logos.map((logo) => (
                     <div key={logo} className="group inline-block">
                         <img
-                        src={`src/assets/logos/${logo}.png`}
+                        src={`/assets/logos/${logo}.png`}
                         width="100"
                         height="60"
                         alt={logo}
