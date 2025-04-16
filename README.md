@@ -14,3 +14,4 @@ Deploying the Application:
  - Queues the build for our react application, address any errors, and then you can visit the website.
  - NOTE: you'll need to move your assets folder into the public directory so Vercel can access them during deployment.
    - In vite, this would also involve embedding your paths directly within the JSX elements with the updated path instead of importing it at the top.
+- See build follow along here: https://www.youtube.com/watch?v=b4i8l73DU6A
