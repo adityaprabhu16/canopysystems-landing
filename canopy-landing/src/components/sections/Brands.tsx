@@ -41,9 +41,8 @@ export const Brands = () => {
                                 height="60"
                                 alt={name}
                                 className={`h-7 sm:h-10 w-auto transition duration-300 ease-linear 
-                                    grayscale brightness-50 
-                                    group-hover:grayscale-0 group-hover:brightness-100 
-                                    group-hover:scale-110
+                                    opacity-100 hover:opacity-100 
+                                    group-hover:scale-105 
                                     peer`}
                             />
                         </a>
