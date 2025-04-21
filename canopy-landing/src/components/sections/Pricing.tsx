@@ -1,9 +1,7 @@
-
 import { Container } from "../shared/Container";
 import { Paragraph } from "../shared/Paragraph";
 import { Title } from "../shared/Title";
 import {pricingPlans} from "../../utils/pricing-plan";
-import { Button } from "../shared/Button";
 
 export const Pricing = () => {
     return (
@@ -11,7 +9,7 @@ export const Pricing = () => {
         {/* Pricing Section */}
         <Container className="text-center">
             <Title>Gallery</Title>
-            <Paragraph className="mt-4">Choose the plan that's right for your business.</Paragraph>
+            <Paragraph className="mt-4">Monitor and control the 3 Important Metrics in addition to light.</Paragraph>
         </Container>
         <Container className="mt-12"> 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -19,37 +17,25 @@ export const Pricing = () => {
                     <div key={key} className="relative group h-full">
                         <div className="bg-gradient-to-r from-blue-800 to-green-800 p-1 rounded-3xl h-full">
                             <div className="bg-box-bg border border-box-border rounded-3xl shadow-lg shadow-box-shadow p-8 flex flex-col h-full relative">
-                            {plan.bestValue && (
-                                <div
-                                className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary
-                                                                text-white text-xs font-bold uppercase tracking-wider
-                                                                px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-violet-600"
-                                >
-                                    Best Value
+                                {plan.bestValue && (
+                                    <div
+                                    className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary
+                                                                    text-white text-xs font-bold uppercase tracking-wider
+                                                                    px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 to-violet-600"
+                                    >
+                                        Best Value
+                                    </div>
+                                )}
+                                <h3 className="text-2xl font-semibold text-heading-1 mb-2">
+                                    {plan.title}
+                                </h3>
+                                <div className="w-full aspect-[4/3] mb-4 overflow-hidden rounded-xl">
+                                    <img 
+                                        src={plan.imgSrc} 
+                                        alt={plan.title} 
+                                        className="w-full h-full object-cover object-center" 
+                                    />
                                 </div>
-                            )}
-                            <h3 className="text-2xl font-semibold text-heading-1">
-                                {" "}
-                                { plan.title }
-                            </h3>
-                            <p className="mt-4 text-4xl font-bold text-heading-1">
-                                {" "}
-                                { plan.price }
-                            </p>
-                            <ul className="mt-6 flex-1 space-y-3 text-left text-heading-3">
-                                {plan.features.map((feature, keyFeatures) => (
-                                    <li key={keyFeatures} className="flex items-center gap-2">
-                                        <span className="text-primary">✅</span>
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <div className="mt-8">
-                                {/*Note: we can do an onClick over here to take us to a specific page!*/}
-                                <Button className="mt-8 transform transition-transform duration-300 hover:scale-105 text-white">
-                                    Choose Plan
-                                </Button>
-                            </div>
                             </div>
                         </div>
                     </div>

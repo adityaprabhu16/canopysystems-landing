@@ -1,27 +1,49 @@
 import { Container } from "../shared/Container"
 import { Title } from "../shared/Title";
 
-const logos = ["discord", "openai", "paypal", "slack", "spotify", "uber", "youtube"]
+const logoDetails = [
+    { 
+        name: "instagram", 
+        color: "group-hover:scale-110 group-hover:brightness-125",
+        brandColor: "grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+    },
+    { 
+        name: "linkedin", 
+        color: "group-hover:scale-110 group-hover:brightness-125",
+        brandColor: "grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+    },
+    { 
+        name: "youtube", 
+        color: "group-hover:scale-110 group-hover:brightness-125",
+        brandColor: "grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300"
+    }
+]
 
 export const Brands = () => {
     return <section>
         <Container className="space-y-8">
             <div className="text-center max-w-3xl mx-auto">
-                <Title>Includes...</Title>
+                <Title>Check us out!</Title>
             </div>
-            <div className="flex justify-center flex-wrap gap-4 group">
-                {logos.map((logo) => (
-                    <div key={logo} className="group inline-block">
+            <div className="flex justify-center flex-wrap gap-4">
+                {logoDetails.map(({ name }) => (
+                    <div 
+                        key={name} 
+                        className="group inline-block hover:z-10"
+                    >
                         <img
-                        src={`/assets/logos/${logo}.png`}
-                        width="100"
-                        height="60"
-                        alt={logo}
-                        className="h-7 sm:h-10 w-auto grayscale transition duration-300 ease-linear group-hover:grayscale-0 group-hover:scale-105"
+                            src={`/assets/logos/${name}.png`}
+                            width="100"
+                            height="60"
+                            alt={name}
+                            className={`h-7 sm:h-10 w-auto transition duration-300 ease-linear 
+                                grayscale brightness-50 
+                                group-hover:grayscale-0 group-hover:brightness-100 
+                                group-hover:scale-110
+                                peer`}
                         />
                     </div>
-                    ))
-                }
+                ))}
             </div>
         </Container>
     </section>

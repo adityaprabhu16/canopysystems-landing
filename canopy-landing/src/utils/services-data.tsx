@@ -18,6 +18,7 @@ export const services = [
         />
       </svg>
     ),
+    imgSrc: "/assets/irrigation/SensorModal.png"
   },
   {
     title: "Real-Time Monitoring",
@@ -38,6 +39,7 @@ export const services = [
         />
       </svg>
     ),
+    imgSrc: "/assets/irrigation/Ambient.png"
   },
   {
     title: "Customizable Alerts & Routines:",
@@ -58,5 +60,6 @@ export const services = [
         />
       </svg>
     ),
+    imgSrc: "/assets/irrigation/Water.png"
   },
 ];

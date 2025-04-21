@@ -1,15 +1,16 @@
 export const pricingPlans = [
     {
-      title: "Basic",
+      title: "Humidity",
       price: "$19/mo",
       features: [
         "Access to basic AI tools",
         "Limited data analytics",
         "Email support",
       ],
+      imgSrc: "/assets/irrigation/Humidity.png"
     },
     {
-      title: "Pro",
+      title: "Temperature",
       price: "$49/mo",
       features: [
         "Everything in Basic",
@@ -17,10 +18,10 @@ export const pricingPlans = [
         "Real‑time analytics",
         "Priority email support",
       ],
-      bestValue: true,
+      imgSrc: "/assets/irrigation/Temperature.png"
     },
     {
-      title: "Enterprise",
+      title: "Water Level",
       price: "$99/mo",
       features: [
         "Everything in Pro",
@@ -28,5 +29,7 @@ export const pricingPlans = [
         "Custom integrations",
         "24/7 premium support",
       ],
+      bestValue: true,
+      imgSrc: "/assets/irrigation/Water.png"
     },
 ];
