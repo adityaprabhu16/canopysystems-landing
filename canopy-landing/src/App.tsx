@@ -6,6 +6,7 @@ import {Services} from "./components/sections/Services";
 import { AboutUs } from "./components/sections/AboutUs"; 
 import { Pricing } from "./components/sections/Pricing";
 import { CTA } from "./components/sections/CallToAction";
+import { Contact } from "./components/sections/Contact";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
     <AboutUs />
     <Pricing />
     <CTA />
+    <Contact />
   </Layout>);
 }
 

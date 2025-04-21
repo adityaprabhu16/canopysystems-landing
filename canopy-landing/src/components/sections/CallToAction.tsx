@@ -1,6 +1,6 @@
 import { Container } from "../shared/Container"
 import { Paragraph } from "../shared/Paragraph";
-import { Button } from "../shared/Button";
+import { BtnLink } from "../shared/BtnLink";
 
 export const CTA = () => {
     return (
@@ -13,7 +13,7 @@ export const CTA = () => {
                     Smarter plant care that fits right into your smart home — fully automated, locally controlled, and built for you.
                     </Paragraph>
                     <div className="mx-auto max-w-md sm:max-w-xl pt-10 dark:text-white">
-                        <Button>Get in touch.</Button>
+                        <BtnLink href="#contact" text="Get in touch."/>
                     </div>
                 </div>
             </div>

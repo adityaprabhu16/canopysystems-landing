@@ -1,7 +1,7 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { Container } from '../shared/Container';
 import { Title } from '../shared/Title';
-import { Button } from '../shared/Button';
 import { Paragraph } from '../shared/Paragraph';
 
 export const Contact = () => {
@@ -20,18 +20,60 @@ export const Contact = () => {
         }));
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // TODO: Implement actual form submission logic
-        console.log('Form submitted:', formData);
-        alert('Thank you for joining our newsletter!');
-        // Reset form after submission
-        setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
-        });
+        setIsSubmitting(true);
+        setSubmitError('');
+        
+        try {
+            const response = await axios.post(
+                'https://script.google.com/macros/s/AKfycbwbhqW7wPxxiC6ss-OvV8knGRJOARG3Ma4gWX11kFOxAghP9YKurL7-YjA_E18577dCFw/exec', 
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    withCredentials: false,
+                    timeout: 10000
+                }
+            );
+
+            if (response.data.result === 'success') {
+                alert('Thank you for joining our newsletter!');
+                // Reset form after successful submission
+                setFormData({
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: ''
+                });
+            } else {
+                setSubmitError(response.data.message || 'Something went wrong');
+            }
+        } catch (error) {
+            console.error('Submission error', error);
+            if (axios.isAxiosError(error)) {
+                // More specific error handling
+                if (error.response) {
+                    // The request was made and the server responded with a status code
+                    setSubmitError(error.response.data.message || 'Server error');
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    setSubmitError('No response from server');
+                } else {
+                    // Something happened in setting up the request
+                    setSubmitError('Error preparing request');
+                }
+            } else {
+                setSubmitError('An unexpected error occurred');
+            }
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -75,7 +117,7 @@ export const Contact = () => {
                                     onChange={handleChange}
                                     required
                                     className="w-full px-4 py-3 rounded-xl border border-box-border bg-body text-heading-2 focus:outline-none focus:ring-2 focus:ring-primary"
-                                    placeholder="your.email@example.com"
+                                    placeholder="Your Email Address"
                                 />
                             </div>
 
@@ -89,6 +131,7 @@ export const Contact = () => {
                                     name="subject"
                                     value={formData.subject}
                                     onChange={handleChange}
+                                    required
                                     className="w-full px-4 py-3 rounded-xl border border-box-border bg-body text-heading-2 focus:outline-none focus:ring-2 focus:ring-primary"
                                     placeholder="Newsletter or Inquiry"
                                 />
@@ -103,6 +146,7 @@ export const Contact = () => {
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
+                                    required
                                     rows={4}
                                     className="w-full px-4 py-3 rounded-xl border border-box-border bg-body text-heading-2 focus:outline-none focus:ring-2 focus:ring-primary"
                                     placeholder="Additional comments or questions"
@@ -111,16 +155,16 @@ export const Contact = () => {
                         </div>
 
                         <div className="text-center">
-                            <Button 
+                            <button 
                                 type="submit" 
-                                className="w-full py-4 text-lg transform transition-transform duration-300 hover:scale-105"
+                                className="w-full px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition duration-300"
                             >
                                 Join Newsletter
-                            </Button>
+                            </button>
                         </div>
                     </form>
                 </div>
             </Container>
         </section>
     );
-}
+};

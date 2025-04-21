@@ -1,6 +1,6 @@
 import { Container } from "../shared/Container"; 
 import { Paragraph } from "../shared/Paragraph";
-import { Button } from "../shared/Button";
+import { BtnLink } from "../shared/BtnLink";
 import { Numbers } from "../sections/Numbers";
 
 export const Hero = () => {
@@ -42,9 +42,7 @@ export const Hero = () => {
                                         />
                                     </svg>
                                 </span>
-                                <Button className="min-w-max text-white">
-                                    <span className="relative z-[5]">Get Started</span>
-                                </Button>
+                                <BtnLink href="#contact" text="Get Started"/>
                             </form>
                         </div>
                     </div>
