@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Container } from '../shared/Container';
 import { Title } from '../shared/Title';
 import { Paragraph } from '../shared/Paragraph';
-import { Button } from "../shared/Button";
 
 export const Contact = () => {
     const [formData, setFormData] = useState({
@@ -21,13 +19,13 @@ export const Contact = () => {
         }));
     };
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitError, setSubmitError] = useState('');
+    //const [isSubmitting, setIsSubmitting] = useState(false);
+    //const [submitError, setSubmitError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setIsSubmitting(true);
-        setSubmitError('');
+        //setIsSubmitting(true);
+        //setSubmitError('');
 
         try {
             const response = await fetch('https://script.google.com/macros/s/AKfycbzbc27fDZU3wdv2LFn39b-cfQA8aAPQwgAATaa2kam8sDDRr7-z0xw8gh_z0wxL8vLTVw/exec', {
@@ -49,14 +47,12 @@ export const Contact = () => {
                     subject: '',
                     message: ''
                 });
-            } else {
-                setSubmitError(result.message || 'Something went wrong');
-            }
+            } 
         } catch (error) {
             console.error('Submission error', error);
-            setSubmitError('An error occurred. Please try again later.');
+            //setSubmitError('An error occurred. Please try again later.');
         } finally {
-            setIsSubmitting(false);
+            //setIsSubmitting(false);
         }
     };
 
