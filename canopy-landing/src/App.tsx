@@ -1,24 +1,17 @@
 
-import { Layout } from "./components/Layout";
-import { Hero } from "./components/sections/Hero";
-import { Brands } from "./components/sections/Brands";
-import {Services} from "./components/sections/Services";
-import { AboutUs } from "./components/sections/AboutUs"; 
-import { Pricing } from "./components/sections/Pricing";
-import { CTA } from "./components/sections/CallToAction";
-import { Contact } from "./components/sections/Contact";
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CommunityPage from "./components/cards/CommunityPage";
+import HomePage from "./components/cards/HomePage";
+ 
 function App() {
   return (
-  <Layout title="Canopy Systems">
-    <Hero />
-    <Brands />
-    <Services />
-    <AboutUs />
-    <Pricing />
-    <CTA />
-    <Contact />
-  </Layout>);
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/community" element={<CommunityPage />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App

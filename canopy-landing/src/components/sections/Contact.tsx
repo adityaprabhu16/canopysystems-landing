@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container } from '../shared/Container';
 import { Title } from '../shared/Title';
 import { Paragraph } from '../shared/Paragraph';
+import { Button } from "../shared/Button";
 
 export const Contact = () => {
     const [formData, setFormData] = useState({
@@ -27,24 +28,21 @@ export const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitError('');
-        
-        try {
-            const response = await axios.post(
-                'https://script.google.com/macros/s/AKfycbwbhqW7wPxxiC6ss-OvV8knGRJOARG3Ma4gWX11kFOxAghP9YKurL7-YjA_E18577dCFw/exec', 
-                formData,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    withCredentials: false,
-                    timeout: 10000
-                }
-            );
 
-            if (response.data.result === 'success') {
+        try {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbzbc27fDZU3wdv2LFn39b-cfQA8aAPQwgAATaa2kam8sDDRr7-z0xw8gh_z0wxL8vLTVw/exec', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8"
+                },
+                body: JSON.stringify(formData),
+                redirect: 'follow'
+            });
+
+            const result = await response.json();
+
+            if (result.result === 'success') {
                 alert('Thank you for joining our newsletter!');
-                // Reset form after successful submission
                 setFormData({
                     name: '',
                     email: '',
@@ -52,25 +50,11 @@ export const Contact = () => {
                     message: ''
                 });
             } else {
-                setSubmitError(response.data.message || 'Something went wrong');
+                setSubmitError(result.message || 'Something went wrong');
             }
         } catch (error) {
             console.error('Submission error', error);
-            if (axios.isAxiosError(error)) {
-                // More specific error handling
-                if (error.response) {
-                    // The request was made and the server responded with a status code
-                    setSubmitError(error.response.data.message || 'Server error');
-                } else if (error.request) {
-                    // The request was made but no response was received
-                    setSubmitError('No response from server');
-                } else {
-                    // Something happened in setting up the request
-                    setSubmitError('Error preparing request');
-                }
-            } else {
-                setSubmitError('An unexpected error occurred');
-            }
+            setSubmitError('An error occurred. Please try again later.');
         } finally {
             setIsSubmitting(false);
         }
@@ -157,7 +141,7 @@ export const Contact = () => {
                         <div className="text-center">
                             <button 
                                 type="submit" 
-                                className="w-full px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition duration-300"
+                                className="px-6 py-3 rounded-full outline-none cursor-pointer relative overflow-hidden border dark:bg-blue-500 border-transparent"
                             >
                                 Join Newsletter
                             </button>

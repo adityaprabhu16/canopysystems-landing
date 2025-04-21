@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Container } from "../shared/Container";
 import { NavItem } from "../shared/NavItem";
 import { BtnLink } from "../shared/BtnLink";
@@ -8,7 +9,8 @@ export const navItems = [
     {href: "#services", text: "Features"},
     {href: "#about-us", text: "About Us"},
     {href: "#gallery", text: "Gallery"},
-    {href: "#contact", text: "Contact"}
+    {href: "#contact", text: "Contact"},
+    {href:"/community", text: "Community"}
 ]
 
 
@@ -21,10 +23,10 @@ export const Navbar = () => {
             <Container>
                 <nav className="w-full flex justify-between gap-6 relative">
                     <div className="min-w-max inline-flex relative">
-                        <a href="/" className="relative flex items-center gap-3">
-                            <img src="/assets/icon.png" alt="EdgeAI logo" className="w-10 h-10"/>
+                        <Link to="/" className="relative flex items-center gap-3">
+                            <img src="/assets/icon.png" alt="Canopy Systems logo" className="w-10 h-10"/>
                             <div className="inline-flex text-2xl font-semibold text-heading-1">Canopy Systems</div>
-                        </a>
+                        </Link>
                     </div>
                     <div className="flex flex-col lg:flex-row w-full lg:justify-between lg:items-center absolute top-full left-0 lg:static lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0 lg:h-auto h-0 overflow-hidden">
                         <ul className="border-t border-box-border lg:border-t-0 px-6 lg:px-0 flex flex-col lg:flex-row gap-y-4 gap-x-3 text-lg text-heading-2 w-full lg:justify-center lg:items-center">
