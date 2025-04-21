@@ -1,7 +1,7 @@
 export const services = [
   {
-    title: "Intelligent Automation",
-    description: "Streamline processes and reduce manual tasks.",
+    title: "One-Step Setup",
+    description: "Plug in sensors and devices with labeled ports — no soldering, no hassle.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -20,8 +20,8 @@ export const services = [
     ),
   },
   {
-    title: "Real‑Time Analytics",
-    description: "Gain actionable insights as events unfold.",
+    title: "Real-Time Monitoring",
+    description: "Track plant health data like water levels, light intensity, and temperature right from your phone.",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -40,8 +40,8 @@ export const services = [
     ),
   },
   {
-    title: "Predictive Insights",
-    description: " Anticipate trends and mitigate risks before they occur.",
+    title: "Customizable Alerts & Routines:",
+    description: "Set reminders and automations based on sensor data - for example, \"turn lights on when it's cloudy\" or \"alert me when water is low.\"",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

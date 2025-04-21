@@ -7,17 +7,17 @@ import { Button } from "../shared/Button";
 
 export const Pricing = () => {
     return (
-    <section id="pricing" className="py-5">
+    <section id="gallery" className="py-5">
         {/* Pricing Section */}
         <Container className="text-center">
-            <Title>Pricing</Title>
+            <Title>Gallery</Title>
             <Paragraph className="mt-4">Choose the plan that's right for your business.</Paragraph>
         </Container>
         <Container className="mt-12"> 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {pricingPlans.map((plan, key) => (
                     <div key={key} className="relative group h-full">
-                        <div className="bg-gradient-to-r from-blue-600 to-violet-600 p-1 rounded-3xl h-full">
+                        <div className="bg-gradient-to-r from-blue-800 to-green-800 p-1 rounded-3xl h-full">
                             <div className="bg-box-bg border border-box-border rounded-3xl shadow-lg shadow-box-shadow p-8 flex flex-col h-full relative">
                             {plan.bestValue && (
                                 <div

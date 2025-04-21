@@ -8,8 +8,8 @@ export const Footer = () => {
             <Container>
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="flex items-center gap-3 mb-4">
-                        <img className="w-7 h-7" alt="Edge AI Logo" src="/assets/icon.svg"/>
-                        <span className="text-lg font-semibold text-heading-1">EdgeAI</span>
+                        <img className="w-7 h-7" alt="Canopy Systems Logo" src="/assets/icon.png"/>
+                        <span className="text-2xl font-semibold text-heading-1">Canopy Systems</span>
                     </div>
                     <ul className="flex gap-6 text-heading-1">
                         {

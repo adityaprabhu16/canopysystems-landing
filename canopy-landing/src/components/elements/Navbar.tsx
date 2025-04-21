@@ -4,10 +4,10 @@ import { BtnLink } from "../shared/BtnLink";
 import { useThemeStore } from "../../store/ThemeStore"
 
 export const navItems = [
-    {href: "#", text: "Home"},
-    {href: "#", text: "Services"},
+    {href: "#home", text: "Home"},
+    {href: "#services", text: "Features"},
     {href: "#about-us", text: "About Us"},
-    {href: "#features", text: "Pricing"}
+    {href: "#gallery", text: "Gallery"}
 ]
 
 
@@ -21,8 +21,8 @@ export const Navbar = () => {
                 <nav className="w-full flex justify-between gap-6 relative">
                     <div className="min-w-max inline-flex relative">
                         <a href="/" className="relative flex items-center gap-3">
-                            <img src="/assets/icon.svg" alt="EdgeAI logo" className="w-10 h-10"/>
-                            <div className="inline-flex text-lg font-semibold text-heading-1">Edge AI</div>
+                            <img src="/assets/icon.png" alt="EdgeAI logo" className="w-10 h-10"/>
+                            <div className="inline-flex text-2xl font-semibold text-heading-1">Canopy Systems</div>
                         </a>
                     </div>
                     <div className="flex flex-col lg:flex-row w-full lg:justify-between lg:items-center absolute top-full left-0 lg:static lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0 lg:h-auto h-0 overflow-hidden">
