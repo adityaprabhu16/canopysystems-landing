@@ -60,9 +60,9 @@ export const Contact = () => {
         <section id="contact" className="py-16 bg-body">
             <Container>
                 <div className="max-w-xl mx-auto text-center mb-12">
-                    <Title>Join Our Newsletter</Title>
+                    <Title>Interested in Learning More?</Title>
                     <Paragraph className="mt-4 text-body-text">
-                        Stay updated with the latest innovations, product updates, and exclusive offers.
+                        Join for updates when a demo is ready! Interested in a chat or demo or have any comments you wish to share? Say so in the description and we'll get back ASAP.
                     </Paragraph>
                 </div>
 
@@ -138,8 +138,11 @@ export const Contact = () => {
                             <button 
                                 type="submit" 
                                 className="px-6 py-3 rounded-full outline-none cursor-pointer relative overflow-hidden border dark:bg-blue-500 border-transparent"
+                                style={{
+                                    backgroundColor: '#3B82F6' //tailwind css blue
+                                }}
                             >
-                                Join Newsletter
+                                <span className="text-white">Join Newsletter</span>
                             </button>
                         </div>
                     </form>

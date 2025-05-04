@@ -42,7 +42,8 @@ export const Hero = () => {
                                         />
                                     </svg>
                                 </span>
-                                <BtnLink href="#contact" text="Get Started"/>
+                                <p>Interested in a demo? Join for updates!</p>
+                                <BtnLink href="#contact" text="Join"/>
                             </form>
                         </div>
                     </div>
