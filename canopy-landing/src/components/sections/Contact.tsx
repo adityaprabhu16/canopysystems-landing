@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container } from '../shared/Container';
 import { Title } from '../shared/Title';
 import { Paragraph } from '../shared/Paragraph';
+import { Loading } from "../shared/Loading";
 
 export const Contact = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ export const Contact = () => {
         subject: '',
         message: ''
     });
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -26,7 +29,7 @@ export const Contact = () => {
         e.preventDefault();
         //setIsSubmitting(true);
         //setSubmitError('');
-
+        setIsLoading(true);
         try {
             const response = await fetch('https://script.google.com/macros/s/AKfycbzbc27fDZU3wdv2LFn39b-cfQA8aAPQwgAATaa2kam8sDDRr7-z0xw8gh_z0wxL8vLTVw/exec', {
                 method: 'POST',
@@ -54,7 +57,12 @@ export const Contact = () => {
         } finally {
             //setIsSubmitting(false);
         }
+        setIsLoading(false);
     };
+
+    if (isLoading) {
+        return <Loading />
+    }
 
     return (
         <section id="contact" className="py-16 bg-body">
